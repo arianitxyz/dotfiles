@@ -49,11 +49,11 @@ bindsym $mod+z exec --no-startup-id morc_menu
 exec --no-startup-id volumeicon
 exec --no-startup-id pulseaudio
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  +10%;pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo  0"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -10%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -10%";
 bindsym XF86AudioMute exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo 1"
 
 
-bindsym $mod+XF86AudioRaiseVolume "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  +10%;pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo  0"
+
 
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
