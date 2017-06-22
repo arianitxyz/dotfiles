@@ -12,18 +12,20 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 
-new_window 1pixel
+
+
+new_window none
 set $mod Mod4
 #wifi icon
 exec --no-startup-id nm-applet
 
 #wallpaper selector edit directory below
-exec --no-startup-id feh --bg-scale ~angernit/Desktop/arch1.png
+exec --no-startup-id feh --bg-scale ~angernit/Desktop/lock.jpg
 
 exec --no-startup-id border none
 
 #custom bindsyms
-bindsym $mod+Ctrl+I exec connectToVala
+bindsym $mod+Ctrl+i exec connectToVala
 #Nasty hack to hide autologin to VALA_Free
 for_window [class="wifiLogin"] floating enable,move workspace 8
 bindsym $mod+0 exec i3lock
@@ -59,9 +61,10 @@ bindsym $mod+n border normal
 
 #audio
 exec --no-startup-id volumeicon
-#exec --no-startup-id pulseaudiobindsym XF86AudioRaiseVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  +10%"
-#bindsym XF86AudioLowerVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -10%"
-#bindsym XF86AudioMute exec "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo  toggle"
+exec --no-startup-id pulseaudio
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  +10%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -10%"
+bindsym XF86AudioMute exec "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo  toggle"
 
 
 
@@ -92,10 +95,9 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -210,19 +212,21 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
+
 bar {
-        status_command i3status
         status_command i3status
       	position bottom
 
       ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-      #	tray_output primary
-      #	tray_output eDP1
+      	#tray_output primary
+      	#tray_output eDP1
 
       	bindsym button4 nop
       	bindsym button5 nop
       	font xft:Noto Sans 11
       	strip_workspace_numbers yes
+
 
       	colors {
       #       background $transparent
@@ -236,7 +240,9 @@ bar {
               inactive_workspace 	 #595B5B  #353836  #EEE8D5
               urgent_workspace  	 #16A085  #FDF6E3  #E5201D
           }
+
       }
+
 
       # hide/unhide i3status bar
       bindsym $mod+m bar mode toggle
