@@ -18,10 +18,12 @@ new_window none
 set $mod Mod4
 #wifi icon
 exec --no-startup-id nm-applet
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+
+
 
 #wallpaper selector edit directory below
-exec --no-startup-id feh --bg-scale ~angernit/Desktop/lock.jpg
-
+exec --no-startup-id feh --bg-scale ~nit/Downloads/nature-milky-way-stars-sky-186599.jpeg
 exec --no-startup-id border none
 
 #custom bindsyms
@@ -34,7 +36,7 @@ bindsym $mod+0 exec i3lock
 
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
-bindsym $mod+F1 exec lollypop
+bindsym $mod+F1 exec chromium
 bindsym Print exec --no-startup-id gnome-screenshot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -sP
@@ -245,4 +247,4 @@ bar {
 
 
       # hide/unhide i3status bar
-      bindsym $mod+m bar mode toggle
+bindsym $mod+m bar mode toggle
